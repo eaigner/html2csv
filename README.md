@@ -32,3 +32,13 @@
     -d, --data DIR                   Directory containing HTML files
     -o, --output DIR                 Output CSV file name
     -x, --xpaths FILE                File containing XPaths to match
+
+# XPath file format
+
+Using `parse.rb -x Example.xpaths` XPaths are mapped to columns (one pair per line)
+
+## Example.xpaths
+
+    <Column-1>: <XPath-1>
+    <Column-2>: <XPath-2>
+    ...
