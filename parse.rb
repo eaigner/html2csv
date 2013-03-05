@@ -35,7 +35,7 @@ class Parser
     # Get xpaths
     @xpaths = {}
     File.readlines(opts[:xpath_file]).each do |line|
-      name, xpath = line.match(/^(\w+):\s+(.*)$/i).captures
+      name, xpath = line.match(/^(\w+):\s*(.*)$/i).captures
       @xpaths[name] = xpath
     end
   end
