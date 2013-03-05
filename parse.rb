@@ -70,9 +70,11 @@ class Parser
     # Extract tags
     out = []
     @xpaths.each { |k, v|
+      m = []
       doc.xpath(v).each { |t|
-        out.push Iconv.conv('US-ASCII//IGNORE', enc, t.to_s)
+        m.push Iconv.conv('US-ASCII//IGNORE', enc, t.to_s)
       }
+      out.push m.join(', ')
     }
 
     return out
