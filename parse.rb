@@ -12,6 +12,7 @@ options = {
   :data_dir => 'data',
   :output => 'out.csv',
   :xpath_file => 'Xpaths',
+  :encoding => 'UTF-8'
 }
 OptionParser.new do |opts|
   opts.banner = "Usage: parse.rb [options]"
@@ -23,6 +24,9 @@ OptionParser.new do |opts|
   end
   opts.on("-x", "--xpaths FILE", "File containing XPaths to match") do |v|
     options[:xpath_file] = v
+  end
+  opts.on("-e", "--encoding ENC", "Text encoding to convert to") do |v|
+    options[:encoding] = v
   end
 end.parse!
 
@@ -72,7 +76,7 @@ class Parser
     @xpaths.each { |k, v|
       m = []
       doc.xpath(v).each { |t|
-        m.push Iconv.conv('US-ASCII//IGNORE', enc, t.to_s)
+        m.push Iconv.conv(@options[:encoding], enc, t.to_s)
       }
       out.push m.join(', ')
     }

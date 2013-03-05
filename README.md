@@ -28,10 +28,11 @@
 # Usage
 
     Usage: parse.rb [options]
-
+    
     -d, --data DIR                   Directory containing HTML files
     -o, --output DIR                 Output CSV file name
     -x, --xpaths FILE                File containing XPaths to match
+    -e, --encoding ENC               Text encoding to convert to
 
 # XPath file format
 
